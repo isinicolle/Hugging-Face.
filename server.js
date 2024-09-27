@@ -20,7 +20,13 @@ app.post('/api/ask', async (req, res) => {
                 'Authorization': `Bearer ${process.env.HUGGINGFACE_API_KEY}`,
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ inputs: question })
+            body: JSON.stringify({ inputs: question,
+                parameters: {   max_length: 100,  // Longitud máxima de la respuesta
+                    temperature: 0.7,  // Aleatoriedad
+                    top_k: 50,         // Limitar las opciones de palabras
+                    top_p: 0.9         // Nucleus sampling
+                }  // Define el tipo de contenido
+             }) // Envía la pregunta como JSON
         });
 
         const data = await response.json();
