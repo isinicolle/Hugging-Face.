@@ -10,6 +10,22 @@ const port = 3000;
 app.use(express.json());
 app.use(express.static('public')); // Asegúrate de que tus archivos HTML, CSS y JS estén en la carpeta 'public'
 
+// Función para manejar reintentos
+async function fetchWithRetry(url, options, retries = 3) {
+    for (let i = 0; i < retries; i++) {
+        const response = await fetch(url, options);
+        const data = await response.json();
+
+        if (!data.error) {
+            return data;
+        }
+
+        console.log(`Intento ${i + 1}: ${data.error}`);
+        await new Promise(res => setTimeout(res, 5000)); // Espera 5 segundos antes de reintentar
+    }
+    throw new Error('Modelo no disponible tras múltiples intentos');
+}
+
 app.post('/api/ask', async (req, res) => {
     const { question } = req.body;
 
