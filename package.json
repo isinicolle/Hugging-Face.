@@ -1,0 +1,26 @@
+{
+  "name": "Hugging-Face",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "node-fetch": "^2.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isinicolle/Hugging-Face..git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/isinicolle/Hugging-Face./issues"
+  },
+  "homepage": "https://github.com/isinicolle/Hugging-Face.#readme"
+}
